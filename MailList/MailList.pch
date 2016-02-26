@@ -1,0 +1,14 @@
+//
+//  MailList.pch
+//  MailList
+//
+//  Created by MacMini on 16/2/25.
+//  Copyright © 2016年 MacMini. All rights reserved.
+//
+
+#import <Availability.h>
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif

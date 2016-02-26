@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A89C7621C8048860005AA53 /* AddMailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A89C7611C8048860005AA53 /* AddMailViewController.m */; };
 		9ACF2AA81C7EFFB70006F29D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF2AA71C7EFFB70006F29D /* main.m */; };
 		9ACF2AAB1C7EFFB70006F29D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF2AAA1C7EFFB70006F29D /* AppDelegate.m */; };
-		9ACF2AAE1C7EFFB70006F29D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF2AAD1C7EFFB70006F29D /* ViewController.m */; };
 		9ACF2AB11C7EFFB70006F29D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ACF2AAF1C7EFFB70006F29D /* Main.storyboard */; };
 		9ACF2AB31C7EFFB70006F29D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ACF2AB21C7EFFB70006F29D /* Assets.xcassets */; };
 		9ACF2AB61C7EFFB70006F29D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ACF2AB41C7EFFB70006F29D /* LaunchScreen.storyboard */; };
 		9ACF2AC11C7EFFB70006F29D /* MailListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF2AC01C7EFFB70006F29D /* MailListTests.m */; };
 		9ACF2ACC1C7EFFB70006F29D /* MailListUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF2ACB1C7EFFB70006F29D /* MailListUITests.m */; };
+		9ACF2ADB1C7F009F0006F29D /* MailListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF2ADA1C7F009F0006F29D /* MailListTableViewController.m */; };
+		9ACF2ADD1C7F02CC0006F29D /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9ACF2ADC1C7F02CC0006F29D /* data.plist */; };
+		9ACF2AE01C7F04420006F29D /* MailListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF2ADF1C7F04420006F29D /* MailListModel.m */; };
+		9ACF2AE31C7F05360006F29D /* MailListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF2AE21C7F05360006F29D /* MailListCell.m */; };
+		9ACF2AE61C7F0A090006F29D /* MailListFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF2AE51C7F0A090006F29D /* MailListFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A89C7601C8048860005AA53 /* AddMailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMailViewController.h; sourceTree = "<group>"; };
+		9A89C7611C8048860005AA53 /* AddMailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMailViewController.m; sourceTree = "<group>"; };
 		9ACF2AA31C7EFFB70006F29D /* MailList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MailList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ACF2AA71C7EFFB70006F29D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9ACF2AA91C7EFFB70006F29D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9ACF2AAA1C7EFFB70006F29D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9ACF2AAC1C7EFFB70006F29D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9ACF2AAD1C7EFFB70006F29D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9ACF2AB01C7EFFB70006F29D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9ACF2AB21C7EFFB70006F29D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9ACF2AB51C7EFFB70006F29D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +56,16 @@
 		9ACF2AC71C7EFFB70006F29D /* MailListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MailListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ACF2ACB1C7EFFB70006F29D /* MailListUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MailListUITests.m; sourceTree = "<group>"; };
 		9ACF2ACD1C7EFFB70006F29D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9ACF2AD91C7F009F0006F29D /* MailListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailListTableViewController.h; sourceTree = "<group>"; };
+		9ACF2ADA1C7F009F0006F29D /* MailListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailListTableViewController.m; sourceTree = "<group>"; };
+		9ACF2ADC1C7F02CC0006F29D /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
+		9ACF2ADE1C7F04420006F29D /* MailListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailListModel.h; sourceTree = "<group>"; };
+		9ACF2ADF1C7F04420006F29D /* MailListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailListModel.m; sourceTree = "<group>"; };
+		9ACF2AE11C7F05360006F29D /* MailListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailListCell.h; sourceTree = "<group>"; };
+		9ACF2AE21C7F05360006F29D /* MailListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailListCell.m; sourceTree = "<group>"; };
+		9ACF2AE41C7F0A090006F29D /* MailListFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailListFrame.h; sourceTree = "<group>"; };
+		9ACF2AE51C7F0A090006F29D /* MailListFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailListFrame.m; sourceTree = "<group>"; };
+		9ACF2AE91C7F2F820006F29D /* MailList.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MailList.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +118,23 @@
 			children = (
 				9ACF2AA91C7EFFB70006F29D /* AppDelegate.h */,
 				9ACF2AAA1C7EFFB70006F29D /* AppDelegate.m */,
-				9ACF2AAC1C7EFFB70006F29D /* ViewController.h */,
-				9ACF2AAD1C7EFFB70006F29D /* ViewController.m */,
+				9ACF2ADE1C7F04420006F29D /* MailListModel.h */,
+				9ACF2ADF1C7F04420006F29D /* MailListModel.m */,
+				9ACF2AE41C7F0A090006F29D /* MailListFrame.h */,
+				9ACF2AE51C7F0A090006F29D /* MailListFrame.m */,
+				9ACF2AE11C7F05360006F29D /* MailListCell.h */,
+				9ACF2AE21C7F05360006F29D /* MailListCell.m */,
+				9ACF2AD91C7F009F0006F29D /* MailListTableViewController.h */,
+				9ACF2ADA1C7F009F0006F29D /* MailListTableViewController.m */,
+				9A89C7601C8048860005AA53 /* AddMailViewController.h */,
+				9A89C7611C8048860005AA53 /* AddMailViewController.m */,
 				9ACF2AAF1C7EFFB70006F29D /* Main.storyboard */,
 				9ACF2AB21C7EFFB70006F29D /* Assets.xcassets */,
 				9ACF2AB41C7EFFB70006F29D /* LaunchScreen.storyboard */,
 				9ACF2AB71C7EFFB70006F29D /* Info.plist */,
+				9ACF2ADC1C7F02CC0006F29D /* data.plist */,
 				9ACF2AA61C7EFFB70006F29D /* Supporting Files */,
+				9ACF2AE91C7F2F820006F29D /* MailList.pch */,
 			);
 			path = MailList;
 			sourceTree = "<group>";
@@ -245,6 +270,7 @@
 			files = (
 				9ACF2AB61C7EFFB70006F29D /* LaunchScreen.storyboard in Resources */,
 				9ACF2AB31C7EFFB70006F29D /* Assets.xcassets in Resources */,
+				9ACF2ADD1C7F02CC0006F29D /* data.plist in Resources */,
 				9ACF2AB11C7EFFB70006F29D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,8 +296,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9ACF2AAE1C7EFFB70006F29D /* ViewController.m in Sources */,
+				9ACF2ADB1C7F009F0006F29D /* MailListTableViewController.m in Sources */,
+				9A89C7621C8048860005AA53 /* AddMailViewController.m in Sources */,
 				9ACF2AAB1C7EFFB70006F29D /* AppDelegate.m in Sources */,
+				9ACF2AE61C7F0A090006F29D /* MailListFrame.m in Sources */,
+				9ACF2AE31C7F05360006F29D /* MailListCell.m in Sources */,
+				9ACF2AE01C7F04420006F29D /* MailListModel.m in Sources */,
 				9ACF2AA81C7EFFB70006F29D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +441,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/macmini/Documents/zxcode/MailList/MailList/MailList.pch;
 				INFOPLIST_FILE = MailList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhoux.MailList;
@@ -422,6 +454,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/macmini/Documents/zxcode/MailList/MailList/MailList.pch;
 				INFOPLIST_FILE = MailList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhoux.MailList;
@@ -496,6 +530,7 @@
 				9ACF2AD21C7EFFB70006F29D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9ACF2AD31C7EFFB70006F29D /* Build configuration list for PBXNativeTarget "MailListTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +539,7 @@
 				9ACF2AD51C7EFFB70006F29D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9ACF2AD61C7EFFB70006F29D /* Build configuration list for PBXNativeTarget "MailListUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +548,7 @@
 				9ACF2AD81C7EFFB70006F29D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
