@@ -29,6 +29,6 @@
 
 @property (nonatomic, strong) MailListModel *mailList;
 
-+(NSArray *)MailListFrames;
++(NSMutableArray *)MailListFrames;
 
 @end

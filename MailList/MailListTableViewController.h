@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @class MailListModel;
 
 @interface MailListTableViewController : UITableViewController
 
 @property (nonatomic, strong) MailListModel *mailList;
+
+
 
 @end

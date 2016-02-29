@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class MailListModel;
+
+@protocol passValue <NSObject>
+
+-(void)passMailValue:(MailListModel *)mailList;
+
+@end
+
 @interface AddMailViewController : UIViewController
+
+@property (nonatomic, weak) id <passValue> delegate;
 
 @end

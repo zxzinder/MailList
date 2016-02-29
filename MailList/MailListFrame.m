@@ -64,21 +64,50 @@
     
 }
 
-+(NSArray *)MailListFrames{
++(NSMutableArray *)MailListFrames{
     
-    NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"data.plist" ofType:nil]];
+    NSArray *pathArr = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [pathArr objectAtIndex:0];
+    NSString *plistPath = [path stringByAppendingPathComponent:@"data.plist"];
     
+    NSFileManager *fileManager = [[NSFileManager  alloc]init];
+    NSArray *array = [NSArray array];
     NSMutableArray *arrM = [NSMutableArray array];
-    
-    for (NSDictionary *dict in array) {
-        MailListFrame *frame = [[MailListFrame alloc ] init];
+
+    if(![fileManager fileExistsAtPath:plistPath])
+    {
         
-        MailListModel *mailList = [MailListModel MailListWithDict:dict];
+        array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"data.plist" ofType:nil]];
+        [fileManager createFileAtPath:plistPath contents:nil attributes:nil];
+        [array writeToFile:plistPath atomically:YES];
         
-        frame.mailList = mailList;
-        
-        [arrM addObject:frame];
+        for (NSDictionary *dict in array) {
+            MailListFrame *frame = [[MailListFrame alloc ] init];
+            
+            MailListModel *mailList = [MailListModel MailListWithDict:dict];
+            
+            frame.mailList = mailList;
+            
+            [arrM addObject:frame];
+        }
+      
     }
+    else
+    {
+        array = [NSArray arrayWithContentsOfFile:plistPath];
+        for (NSDictionary *dict in array) {
+            MailListFrame *frame = [[MailListFrame alloc ] init];
+            
+            MailListModel *mailList = [MailListModel MailListWithDict:dict];
+            
+            frame.mailList = mailList;
+            
+            [arrM addObject:frame];
+        }
+    }
+
+    
+    
     return arrM;
 }
 

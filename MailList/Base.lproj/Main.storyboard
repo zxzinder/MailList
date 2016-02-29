@@ -41,7 +41,7 @@
         <!--Add Mail View Controller-->
         <scene sceneID="HFU-1k-FkY">
             <objects>
-                <viewController id="aF2-5y-KbT" customClass="AddMailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddMailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aF2-5y-KbT" customClass="AddMailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FNt-pi-VGv"/>
                         <viewControllerLayoutGuide type="bottom" id="not-lZ-Jl8"/>

@@ -30,11 +30,13 @@
 
 -(void)doneClick{
     
-    MailListTableViewController *mlVC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
-    mlVC.mailList.name = @"test";
+    MailListModel *model = [[MailListModel alloc] init];
+    model.name = @"zxzx";
+    model.phone = @"1358546789";
+    model.email = @"asasd@163.com";
     
-
-    [self.navigationController popToViewController:mlVC animated:YES ];
+    [self.delegate passMailValue:model];
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 

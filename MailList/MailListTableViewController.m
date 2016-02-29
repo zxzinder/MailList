@@ -10,11 +10,11 @@
 #import "MailListCell.h"
 #import "MailListModel.h"
 #import "MailListFrame.h"
+#import "AddMailViewController.h"
 
+@interface MailListTableViewController() <passValue>
 
-@interface MailListTableViewController()
-
-@property (nonatomic,strong)NSArray *mailFrames;
+@property (nonatomic,strong)NSMutableArray *mailFrames;
 
 @property (nonatomic, assign) Boolean *isEditing;
 
@@ -24,7 +24,7 @@
 
 static NSString *ID = @"cell";
 
--(NSArray *)mailFrames{
+-(NSMutableArray *)mailFrames{
     
     if (_mailFrames == nil) {
         _mailFrames = [MailListFrame MailListFrames];
@@ -47,22 +47,41 @@ static NSString *ID = @"cell";
     
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    
-    [super viewDidAppear:animated];
-    NSLog(@"%@",self.mailList.name);
-    
-}
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+-(void)passMailValue:(MailListModel *)mailList{
     
-   
-}
+    //NSLog(@"%@",mailList);
+
+    NSArray *pathArr = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [pathArr objectAtIndex:0];
+    NSString *plistPath = [path stringByAppendingPathComponent:@"data.plist"];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:mailList forKey:@"Item"];
+    NSData *data =[NSKeyedArchiver archiveRootObject:mailList];
+    BOOL isSuccess = [dict writeToFile:plistPath atomically:YES];
+    if (isSuccess) {
+        NSLog(@"success");
+    }else{
+        
+        NSLog(@"error");
+    }
+//    NSArray *arr = [NSArray arrayWithObject:mailList];
+//  
+//    [arr writeToFile:plistPath atomically:YES];
+    
+//    NSMutableArray *mailArr =[NSMutableArray array];
+//    [mailArr addObject:mailList];
+//    [mailArr writeToFile:plistPath atomically:YES];
+
+    
+    }
 
 -(void)addBtnClick{
     
-    [self performSegueWithIdentifier:@"push" sender:nil];
     
+    AddMailViewController *adVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"AddMailViewController"];
+    adVC.delegate = self;
+    [self.navigationController pushViewController:adVC animated:YES];
+
 }
 
 -(void)editBtnClick{
