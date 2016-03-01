@@ -16,8 +16,12 @@
 
 @property (nonatomic, copy) NSString *phone;
 
+@property (nonatomic,assign) BOOL isShow;
+
 - (instancetype)initWithDict:(NSDictionary *)dict;
 
 +(instancetype)MailListWithDict:(NSDictionary *)dict;
+
+- (NSDictionary *)dictionaryValue;
 
 @end

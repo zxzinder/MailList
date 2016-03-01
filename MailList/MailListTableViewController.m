@@ -16,7 +16,12 @@
 
 @property (nonatomic,strong)NSMutableArray *mailFrames;
 
-@property (nonatomic, assign) Boolean *isEditing;
+@property (nonatomic, assign) Boolean isEditing;
+
+@property (nonatomic, assign) NSUInteger selectedIndex;
+
+
+@property (nonatomic, strong)MailListFrame *lastMailFrame;
 
 @end
 
@@ -32,6 +37,8 @@ static NSString *ID = @"cell";
     }
     return _mailFrames;
 }
+
+
 
 -(void)viewDidLoad{
     
@@ -52,28 +59,20 @@ static NSString *ID = @"cell";
     
     //NSLog(@"%@",mailList);
 
-    NSArray *pathArr = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [pathArr objectAtIndex:0];
-    NSString *plistPath = [path stringByAppendingPathComponent:@"data.plist"];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:mailList forKey:@"Item"];
-    NSData *data =[NSKeyedArchiver archiveRootObject:mailList];
-    BOOL isSuccess = [dict writeToFile:plistPath atomically:YES];
-    if (isSuccess) {
-        NSLog(@"success");
-    }else{
-        
-        NSLog(@"error");
-    }
-//    NSArray *arr = [NSArray arrayWithObject:mailList];
-//  
-//    [arr writeToFile:plistPath atomically:YES];
-    
-//    NSMutableArray *mailArr =[NSMutableArray array];
-//    [mailArr addObject:mailList];
-//    [mailArr writeToFile:plistPath atomically:YES];
 
-    
+    NSMutableArray *arrM = [NSMutableArray array];
+
+    for (int i=0; i<self.mailFrames.count; i++) {
+        MailListFrame *frame = self.mailFrames[i];
+        MailListModel *model = frame.mailList;
+        [arrM addObject:[model dictionaryValue]];
     }
+    
+    [arrM addObject:[mailList dictionaryValue]];
+    
+    [self saveMailList:arrM];
+    
+}
 
 -(void)addBtnClick{
     
@@ -94,11 +93,32 @@ static NSString *ID = @"cell";
         self.tableView.editing = YES;
         _isEditing = YES;
     }
-    
-    
 
 }
 
+-(void)saveMailList:(NSMutableArray *)arrM{
+    
+    NSArray *pathArr = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [pathArr objectAtIndex:0];
+    NSString *plistPath = [path stringByAppendingPathComponent:@"data.plist"];
+    BOOL isSuccess = [arrM writeToFile:plistPath atomically:YES];
+    if (isSuccess) {
+        NSLog(@"success");
+        _mailFrames = [MailListFrame MailListFrames];
+    }else{
+        
+        NSLog(@"error");
+    }
+    [self.tableView reloadData];
+
+}
+
+//delegate方法中
+-(void)reset {
+    if (self.lastMailFrame) {
+        self.lastMailFrame.mailList.isShow = NO;
+    }
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     return self.mailFrames.count;
@@ -109,22 +129,59 @@ static NSString *ID = @"cell";
     MailListCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
     
     MailListFrame *mailFrame = self.mailFrames[indexPath.row];
+    mailFrame.mailList.isShow = false;
+    cell.isSelected = mailFrame.mailList.isShow;
     cell.mailframe = mailFrame;
     
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    MailListFrame *mailFrame = self.mailFrames[indexPath.row];
+    if (self.lastMailFrame != mailFrame ) {
+        [self reset];
+    }
+    
+    self.selectedIndex = indexPath.row;
+    if (mailFrame.mailList.isShow) {
+        mailFrame.mailList.isShow = NO;
+    } else {
+        mailFrame.mailList.isShow = YES;
+    }
+    [tableView reloadData];
+    self.lastMailFrame = mailFrame;
+    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+   // NSLog(@"%@",self.mailFrames[indexPath.row]);
+}
+
 -(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
     
-    NSLog(@"editing~~~");
+ 
+    id source = self.mailFrames[sourceIndexPath.row];
 
+    [self.mailFrames removeObjectAtIndex:sourceIndexPath.row];
+
+    
+    [self.mailFrames insertObject:source atIndex:destinationIndexPath.row];
+    NSMutableArray *arrM = [NSMutableArray array];
+    
+    for (int i=0; i<self.mailFrames.count; i++) {
+        MailListFrame *frame = self.mailFrames[i];
+        MailListModel *model = frame.mailList;
+        [arrM addObject:[model dictionaryValue]];
+    }
+    [self saveMailList:arrM];
     
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     MailListFrame *mailFrame = self.mailFrames[indexPath.row];
-    
+    if (mailFrame.mailList.isShow) {
+        return 200;
+    }
     return mailFrame.cellHeight;
     
 }

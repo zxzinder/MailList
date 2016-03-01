@@ -25,6 +25,8 @@
 
 @property (nonatomic, strong) UIButton *emailBtn;
 
+@property (nonatomic, strong) UIView *hideView;
+
 @end
 
 @implementation MailListCell
@@ -44,7 +46,7 @@
     
     if (!_telImageView) {
         _telImageView = [[UIImageView alloc] init];
-        [self.contentView addSubview:_telImageView];
+        [self.hideView addSubview:_telImageView];
     }
     return _telImageView;
     
@@ -54,7 +56,7 @@
     
     if (!_telBtn) {
         _telBtn = [[UIButton alloc] init];
-        [self.contentView addSubview:_telBtn];
+        [self.hideView addSubview:_telBtn];
     }
     
     return _telBtn;
@@ -65,7 +67,7 @@
     
     if (!_middleView) {
         _middleView = [[UIView alloc] init];
-        [self.contentView addSubview:_middleView];
+        [self.hideView addSubview:_middleView];
     }
     
     return _middleView;
@@ -76,7 +78,7 @@
     
     if (!_emailImageView) {
         _emailImageView = [[UIImageView alloc] init];
-        [self.contentView addSubview:_emailImageView];
+        [self.hideView addSubview:_emailImageView];
     }
     
     return _emailImageView;
@@ -87,10 +89,20 @@
     
     if (!_emailBtn) {
         _emailBtn = [[UIButton alloc] init];
-        [self.contentView addSubview:_emailBtn];
+        [self.hideView addSubview:_emailBtn];
     }
     
     return _emailBtn;
+    
+}
+
+-(UIView *)hideView{
+    
+    if (!_hideView) {
+        _hideView = [[UIView alloc] init];
+        [self.contentView addSubview:_hideView];
+    }
+    return _hideView;
     
 }
 
@@ -117,6 +129,15 @@
     
     [self.emailBtn setTitle:mailList.email forState:UIControlStateNormal];
     [self.emailBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    
+  
+    if (self.isSelected) {
+        self.hideView.backgroundColor = [UIColor greenColor];
+        self.hideView.hidden = NO;
+    }else{
+        self.hideView.backgroundColor = [UIColor redColor];
+        self.hideView.hidden = YES;
+    }
 }
 
 -(void)settingFrame{
@@ -127,7 +148,10 @@
     self.middleView.frame = self.mailframe.middleViewF;
     self.emailImageView.frame = self.mailframe.emailIconF;
     self.emailBtn.frame = self.mailframe.emailF;
+    
+    self.hideView.frame = self.mailframe.hideViewF;
 }
+
 
 
 

@@ -25,10 +25,11 @@
 
 @property (nonatomic,assign,readonly) CGRect middleViewF;
 
+@property (nonatomic,assign,readonly) CGRect hideViewF;
+
 @property (nonatomic,assign,readonly) CGFloat cellHeight;
 
 @property (nonatomic, strong) MailListModel *mailList;
 
 +(NSMutableArray *)MailListFrames;
-
 @end

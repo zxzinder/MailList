@@ -12,6 +12,8 @@
 
 @interface MailListCell : UITableViewCell
 
+@property (nonatomic,assign) BOOL isSelected;
+
 @property (nonatomic, strong) MailListFrame *mailframe;
 
 
